@@ -26,27 +26,32 @@ public class EnemyControlSystem implements IEntityProcessingService {
     }
 
     private void updateShape(Entity entity) {
-        float[] shapex = entity.getShapeX();
-        float[] shapey = entity.getShapeY();
+        float[] enemyX = entity.getEnemyX();
+        float[] enemyY = entity.getEnemyY();
         PositionPart positionPart = entity.getPart(PositionPart.class);
         float x = positionPart.getX();
         float y = positionPart.getY();
-        float radians = positionPart.getRadians();
 
-        shapex[0] = (float) (x + Math.cos(radians) * 6);
-        shapey[0] = (float) (y + Math.sin(radians) * 6);
+        enemyX[0] = x - 10;
+        enemyY[0] = y;
 
-        shapex[1] = (float) (x + Math.cos(radians - 4 * 3.1415f / 6) * 8);
-        shapey[1] = (float) (y + Math.sin(radians - 4 * 3.1145f / 6) * 8);
+        enemyX[1] = x - 3;
+        enemyY[1] = y - 5;
 
-        shapex[2] = (float) (x + Math.cos(radians + 3.1415f) * 5);
-        shapey[2] = (float) (y + Math.sin(radians + 3.1415f) * 5);
+        enemyX[2] = x + 3;
+        enemyY[2] = y - 5;
 
-        shapex[3] = (float) (x + Math.cos(radians + 4 * 3.1415f / 5) * 8);
-        shapey[3] = (float) (y + Math.sin(radians + 4 * 3.1415f / 5) * 8);
+        enemyX[3] = x + 10;
+        enemyY[3] = y;
 
-        entity.setShapeX(shapex);
-        entity.setShapeY(shapey);
+        enemyX[4] = x + 3;
+        enemyY[4] = y + 5;
+
+        enemyX[5] = x - 3;
+        enemyY[5] = y + 5;
+
+        entity.setShapeX(enemyX);
+        entity.setShapeY(enemyY);
     }
 
 }

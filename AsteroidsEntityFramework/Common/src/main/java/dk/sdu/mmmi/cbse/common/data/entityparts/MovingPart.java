@@ -25,6 +25,7 @@ public class MovingPart
     private float deceleration, acceleration;
     private float maxSpeed, rotationSpeed;
     private boolean left, right, up;
+    private float acceleratingTimer;
 
     public MovingPart(float deceleration, float acceleration, float maxSpeed, float rotationSpeed) {
         this.deceleration = deceleration;
@@ -78,10 +79,20 @@ public class MovingPart
             radians -= rotationSpeed * dt;
         }
 
+
+
         // accelerating            
         if (up) {
             dx += cos(radians) * acceleration * dt;
             dy += sin(radians) * acceleration * dt;
+            acceleratingTimer += dt;
+
+            if (acceleratingTimer > 0.1f) {
+                acceleratingTimer = 0;
+            }
+        }
+        else {
+            acceleratingTimer = 0;
         }
 
         // deccelerating
@@ -118,4 +129,7 @@ public class MovingPart
         positionPart.setRadians(radians);
     }
 
+    public float getAcceleratingTimer() {
+        return acceleratingTimer;
+    }
 }
