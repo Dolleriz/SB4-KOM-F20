@@ -116,5 +116,4 @@ public class MovingPart
         positionPart.setY(y);
         positionPart.setRadians(radians);
     }
-
 }

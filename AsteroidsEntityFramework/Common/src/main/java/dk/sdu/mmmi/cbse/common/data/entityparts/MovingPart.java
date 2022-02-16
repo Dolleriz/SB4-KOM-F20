@@ -85,14 +85,6 @@ public class MovingPart
         if (up) {
             dx += cos(radians) * acceleration * dt;
             dy += sin(radians) * acceleration * dt;
-            acceleratingTimer += dt;
-
-            if (acceleratingTimer > 0.1f) {
-                acceleratingTimer = 0;
-            }
-        }
-        else {
-            acceleratingTimer = 0;
         }
 
         // deccelerating
@@ -127,9 +119,5 @@ public class MovingPart
         positionPart.setY(y);
 
         positionPart.setRadians(radians);
-    }
-
-    public float getAcceleratingTimer() {
-        return acceleratingTimer;
     }
 }

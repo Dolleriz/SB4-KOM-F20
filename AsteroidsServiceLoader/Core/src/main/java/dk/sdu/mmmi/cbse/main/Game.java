@@ -87,11 +87,35 @@ public class Game
             float[] shapey = entity.getShapeY();
 
             for (int i = 0, j = shapex.length - 1;
-                    i < shapex.length;
-                    j = i++) {
+                 i < shapex.length;
+                 j = i++) {
 
                 sr.line(shapex[i], shapey[i], shapex[j], shapey[j]);
             }
+
+            float[] flameX = entity.getFlameX();
+            float[] flameY = entity.getFlameY();
+
+            if(gameData.getKeys().isPressed(0)) {
+                for (int i = 0, j = flameX.length - 1;
+                     i < flameX.length;
+                     j = i++) {
+
+                    sr.line(flameX[i], flameY[i], flameX[j], flameY[j]);
+                }
+            }
+
+            float[] enemyX = entity.getEnemyX();
+            float[] enemyY = entity.getEnemyY();
+
+            for (int i = 0, j = enemyX.length - 1;
+                 i < enemyX.length;
+                 j = i++) {
+
+                sr.line(enemyX[i], enemyY[i], enemyX[j], enemyY[j]);
+            }
+
+            sr.line(shapex[0], shapey[0], shapex [3], shapey[3]);
 
             sr.end();
         }
